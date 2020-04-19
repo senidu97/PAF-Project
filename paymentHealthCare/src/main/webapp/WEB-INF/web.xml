@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This web.xml file is not required when using Servlet 3.0 container,
+     see implementation details http://jersey.java.net/nonav/documentation/latest/jax-rs.html -->
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <servlet>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>jersey.config.server.provider.packages</param-name>
+      <param-value>com.payment.healthcare.paymentHealthCare</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Jersey Web Application</servlet-name>
+    <url-pattern>/webapi/*</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>HttpServlet</servlet-name>
+    <servlet-class>AuthorizePaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HttpServlet</servlet-name>
+    <url-pattern>/welcome</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AuthorizePaymentServlet</display-name>
+    <servlet-name>AuthorizePaymentServlet</servlet-name>
+    <servlet-class>com.payment.healthcare.paymentHealthCare.AuthorizePaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthorizePaymentServlet</servlet-name>
+    <url-pattern>/AuthorizePaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AuthorizingPaymentServlet</display-name>
+    <servlet-name>AuthorizingPaymentServlet</servlet-name>
+    <servlet-class>com.payment.healthcare.paymentHealthCare.AuthorizingPaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthorizingPaymentServlet</servlet-name>
+    <url-pattern>/AuthorizingPaymentServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AuthorizePaymenttServlet</display-name>
+    <servlet-name>AuthorizePaymenttServlet</servlet-name>
+    <servlet-class>com.payment.healthcare.paymentHealthCare.AuthorizePaymenttServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuthorizePaymenttServlet</servlet-name>
+    <url-pattern>/authorize_payment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ReviewPaymentServlet</display-name>
+    <servlet-name>ReviewPaymentServlet</servlet-name>
+    <servlet-class>com.payment.healthcare.paymentHealthCare.ReviewPaymentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReviewPaymentServlet</servlet-name>
+    <url-pattern>/review_payment</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PaymentExecutionServlet</display-name>
+    <servlet-name>PaymentExecutionServlet</servlet-name>
+    <servlet-class>com.payment.healthcare.paymentHealthCare.PaymentExecutionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PaymentExecutionServlet</servlet-name>
+    <url-pattern>/execute_payment</url-pattern>
+  </servlet-mapping>
+</web-app>
